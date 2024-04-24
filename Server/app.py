@@ -11,6 +11,7 @@ load_dotenv()
 
 from db import db
 from routes.index import index
+from routes.auth import auth
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
@@ -51,6 +52,7 @@ api.swagger = {
 }
 
 api.add_namespace(index, '/api')
+api.add_namespace(auth, '/api/auth')
 
 
 @jwt.token_in_blocklist_loader
